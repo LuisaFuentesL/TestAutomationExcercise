@@ -1,31 +1,34 @@
-package com.globant.tests;
+package com.globant.utils;
 
-import com.globant.pages.LogInPage;
+import com.globant.pages.commons.LogInPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.asserts.SoftAssert;
 
 public class BaseTest {
-    WebDriver driver = null;
+    static final String driverPath = "drivers/chromedriver.exe";
     String url = "https://www.saucedemo.com/";
+    WebDriver driver = null;
    LogInPage logInPage;
 
     @BeforeTest
     public void beforeTest(){
-        String driverPath = "C:\\Users\\luisa.fuentes\\Documents\\WebAutomation\\src\\utils\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver",driverPath);
         driver = new ChromeDriver();
     }
 
     @AfterTest
     public void afterTest(){
-        driver.close();
+        //driver.close();
     }
 
     public LogInPage getLogInPage(){
-        return new LogInPage(driver,url);
+        LogInPage logInPage = new LogInPage(driver, url);
+        logInPage.logIn();
+        return logInPage;
 
     }
+
+
 }
