@@ -1,10 +1,9 @@
 package com.globant.utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
     protected WebDriver driver;
@@ -14,15 +13,12 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-
-    protected Boolean isElementDisplayed(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver,5);
-        wait.until(ExpectedConditions.visibilityOf(element));
+    protected boolean isElementDisplayed(WebElement element){
         return element.isDisplayed();
 
     }
 
-//    protected String getText(WebElement element){
-//        return element.getText();
-//    }
+    public boolean isPresent(String className) {
+        return !driver.findElements(By.className(className)).isEmpty();
+    }
 }
