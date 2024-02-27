@@ -58,6 +58,5 @@ public class LogInPage extends BasePage {
 
     public void clickLogInButton() {
         this.loginButton.click();
-        //retorna la siguiente vista
     }
 }

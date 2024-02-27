@@ -1,5 +1,6 @@
 package com.globant.utils;
 
+import com.globant.pages.HomePage;
 import com.globant.pages.commons.LogInPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,7 +11,9 @@ public class BaseTest {
     static final String driverPath = "drivers/chromedriver.exe";
     String url = "https://www.saucedemo.com/";
     WebDriver driver = null;
-   LogInPage logInPage;
+    LogInPage logInPage;
+    HomePage homePage;
+
 
     @BeforeTest
     public void beforeTest(){
@@ -18,17 +21,24 @@ public class BaseTest {
         driver = new ChromeDriver();
     }
 
-    @AfterTest
-    public void afterTest(){
-        //driver.close();
-    }
-
+    @BeforeTest
     public LogInPage getLogInPage(){
         LogInPage logInPage = new LogInPage(driver, url);
         logInPage.logIn();
         return logInPage;
 
     }
+
+    public HomePage getHomePage(){
+        return new HomePage(driver);
+    }
+
+    @AfterTest
+    public void afterTest(){
+        driver.close();
+    }
+
+
 
 
 }
