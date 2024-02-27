@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class CheckoutCompletePage extends BasePage {
     @FindBy(className="complete-header")
+
     private WebElement successfullText;
     public CheckoutCompletePage(WebDriver driver) {
         super(driver);

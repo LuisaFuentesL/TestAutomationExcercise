@@ -11,9 +11,6 @@ public class BaseTest {
     static final String driverPath = "drivers/chromedriver.exe";
     String url = "https://www.saucedemo.com/";
     WebDriver driver = null;
-    LogInPage logInPage;
-    HomePage homePage;
-
 
     @BeforeTest
     public void beforeTest(){
@@ -26,7 +23,6 @@ public class BaseTest {
         LogInPage logInPage = new LogInPage(driver, url);
         logInPage.logIn();
         return logInPage;
-
     }
 
     public HomePage getHomePage(){
@@ -37,8 +33,4 @@ public class BaseTest {
     public void afterTest(){
         driver.close();
     }
-
-
-
-
 }

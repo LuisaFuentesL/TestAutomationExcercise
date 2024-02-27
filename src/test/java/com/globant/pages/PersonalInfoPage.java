@@ -30,7 +30,6 @@ public class PersonalInfoPage extends BasePage {
         setFirstNameInput(firstName);
         setLastNameInput(lastName);
         setPostalCodeInput(postalCode);
-
     }
 
     public void setFirstNameInput(String username){

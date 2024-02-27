@@ -28,22 +28,10 @@ public class LogInPage extends BasePage {
     }
 
     public void logIn(){
-        //Hice este método acá porque considero que el login no es parte de las pruebas. Entonces no debería ser un test
         LogInPage logInPage = this;
         logInPage.setUsernameInput(username);
         logInPage.setPasswordInput(password);
         logInPage.clickLogInButton();
-
-//        homePage.setBarText("Selenium");
-//        softAssert.assertEquals(homePage.getFooterText(),"You can support our work with a donation.");
-//        //WebDriverWait wait = new WebDriverWait(driver,20);
-////        List<WebElement> lang_list = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("central-featured-lang")));
-////        softAssert.assertTrue(lang_list.size()!=0);
-//        //softAssert.assertTrue(submitButton.isDisplayed());
-//        SearchResults searchResults = homePage.clickOnSearch();
-//        softAssert.assertEquals(searchResults.getPageText(),"Selenium");
-//        softAssert.assertAll();
-
     }
 
     public void setUsernameInput(String username){
@@ -57,6 +45,10 @@ public class LogInPage extends BasePage {
     }
 
     public void clickLogInButton() {
-        this.loginButton.click();
+        loginButton.click();
+    }
+
+    public boolean checkIfLoginButtonIsDisplayed(){
+        return this.isElementDisplayed(loginButton);
     }
 }

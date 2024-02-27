@@ -15,10 +15,9 @@ public class BasePage {
 
     protected boolean isElementDisplayed(WebElement element){
         return element.isDisplayed();
-
     }
 
-    public int getNumOfElementsByClassName(String className) {
+    protected int getNumOfElementsByClassName(String className) {
         return driver.findElements(By.className(className)).size();
     }
 }

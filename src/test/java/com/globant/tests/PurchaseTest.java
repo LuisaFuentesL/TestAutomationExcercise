@@ -38,6 +38,4 @@ public class PurchaseTest extends BaseTest {
         String textPage = checkoutCompletePage.getPageText();
         Assert.assertEquals(textPage,textDesired);
     }
-
-
 }

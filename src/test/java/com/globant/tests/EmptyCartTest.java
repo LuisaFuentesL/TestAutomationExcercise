@@ -23,7 +23,6 @@ public class EmptyCartTest extends BaseTest {
         productsNames.add("add-to-cart-sauce-labs-fleece-jacket");
         productsNames.add("add-to-cart-sauce-labs-onesie");
         productsNames.add("add-to-cart-test.allthethings()-t-shirt-(red)");
-
     }
 
     public String pickRandomProduct(){
