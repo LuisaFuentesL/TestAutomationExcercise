@@ -14,6 +14,8 @@ import java.util.Random;
 public class EmptyCartTest extends BaseTest {
     private List<String> productsNames = new ArrayList<>();
 
+    private int numElementsToAdd = 3;
+
     public void fillList(){
         productsNames.add("add-to-cart-sauce-labs-backpack");
         productsNames.add("add-to-cart-sauce-labs-bike-light");
@@ -34,7 +36,7 @@ public class EmptyCartTest extends BaseTest {
     public void testEmptyCart() {
         HomePage homePage = getHomePage();
         fillList();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < numElementsToAdd; i++){
             String buttonName = pickRandomProduct();
             homePage.addToCart(buttonName);
             productsNames.remove(buttonName);
@@ -49,7 +51,7 @@ public class EmptyCartTest extends BaseTest {
                 break;
             }
         }
-        boolean isPresent = cartPage.cartItemIsPresent();
-        Assert.assertTrue(isPresent);
+        int numRemovedElements = cartPage.numCartItemsRemoved();
+        Assert.assertEquals(numElementsToAdd, numRemovedElements);
     }
 }

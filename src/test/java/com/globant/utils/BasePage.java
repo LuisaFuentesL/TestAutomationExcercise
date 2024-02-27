@@ -18,7 +18,7 @@ public class BasePage {
 
     }
 
-    public boolean isPresent(String className) {
-        return !driver.findElements(By.className(className)).isEmpty();
+    public int getNumOfElementsByClassName(String className) {
+        return driver.findElements(By.className(className)).size();
     }
 }

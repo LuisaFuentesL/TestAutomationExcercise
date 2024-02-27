@@ -28,8 +28,12 @@ public class CartPage extends BasePage {
         return this.isElementDisplayed(this.removeButton);
     }
 
-    public boolean cartItemIsPresent(){
-        return this.isPresent(removedCartItemClass);
+//    public boolean cartItemIsPresent(){
+//        return this.isPresent(removedCartItemClass);
+//    }
+
+    public int numCartItemsRemoved(){
+        return this.getNumOfElementsByClassName(removedCartItemClass);
     }
 
     public void clickRemove(){
