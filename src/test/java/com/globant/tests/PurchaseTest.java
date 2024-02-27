@@ -1,6 +1,7 @@
 package com.globant.tests;
 
 import com.globant.pages.*;
+import com.globant.pages.commons.HomePage;
 import com.globant.utils.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,7 +9,7 @@ import java.util.Random;
 
 
 public class PurchaseTest extends BaseTest {
-    String textDesired = "Thank you for your order!";
+    private static final String textDesired = "Thank you for your order!";
 
     String[] productsNames = {
             "add-to-cart-sauce-labs-backpack",

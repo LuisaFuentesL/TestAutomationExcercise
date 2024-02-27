@@ -1,5 +1,6 @@
-package com.globant.pages;
+package com.globant.pages.commons;
 
+import com.globant.pages.CartPage;
 import com.globant.utils.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,9 +20,6 @@ public class HomePage extends BasePage {
     public void addToCart(String productButton){
         buttonProductCart = driver.findElement(By.id(productButton));
         buttonProductCart.click();
-        //String textButtons =buttonProductCart.getText()
-//        WebDriverWait wait = new WebDriverWait(driver,5);
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.id(productButton), "Remove"));
     }
 
     public CartPage goToCart(){

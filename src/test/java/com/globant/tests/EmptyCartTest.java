@@ -1,6 +1,7 @@
 package com.globant.tests;
 
 import com.globant.pages.*;
+import com.globant.pages.commons.HomePage;
 import com.globant.utils.BaseTest;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 public class EmptyCartTest extends BaseTest {
-    List<String> productsNames = new ArrayList<>();
+    private List<String> productsNames = new ArrayList<>();
 
     public void fillList(){
         productsNames.add("add-to-cart-sauce-labs-backpack");
@@ -39,7 +40,6 @@ public class EmptyCartTest extends BaseTest {
             productsNames.remove(buttonName);
         }
         CartPage cartPage= homePage.goToCart();
-
         while (true){
             try {
                 if (cartPage.getRemoveButton()) {
@@ -51,6 +51,5 @@ public class EmptyCartTest extends BaseTest {
         }
         boolean isPresent = cartPage.cartItemIsPresent();
         Assert.assertTrue(isPresent);
-
     }
 }

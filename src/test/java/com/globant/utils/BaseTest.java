@@ -1,6 +1,6 @@
 package com.globant.utils;
 
-import com.globant.pages.HomePage;
+import com.globant.pages.commons.HomePage;
 import com.globant.pages.commons.LogInPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
