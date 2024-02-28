@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseTest {
     static final String driverPath = "drivers/chromedriver.exe";
     String url = "https://www.saucedemo.com/";
@@ -16,6 +18,7 @@ public class BaseTest {
     public void beforeTest(){
         System.setProperty("webdriver.chrome.driver",driverPath);
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.MICROSECONDS);
     }
 
     @BeforeTest

@@ -6,6 +6,7 @@ import com.globant.utils.BaseTest;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.Random;
 
 public class EmptyCartTest extends BaseTest {
     private List<String> productsNames = new ArrayList<>();
-
     private int numElementsToAdd = 3;
+    SoftAssert softAssert = new SoftAssert();
 
     public void fillList(){
         productsNames.add("add-to-cart-sauce-labs-backpack");
@@ -51,6 +52,9 @@ public class EmptyCartTest extends BaseTest {
             }
         }
         int numRemovedElements = cartPage.numCartItemsRemoved();
-        Assert.assertEquals(numElementsToAdd, numRemovedElements);
+        softAssert.assertEquals(numElementsToAdd, numRemovedElements);
+        boolean isCartNumDisplayed = cartPage.getNumCart();
+        softAssert.assertFalse(isCartNumDisplayed);
+        softAssert.assertAll();
     }
 }

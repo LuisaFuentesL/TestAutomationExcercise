@@ -1,6 +1,7 @@
 package com.globant.pages;
 
 import com.globant.utils.BasePage;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,9 @@ public class CartPage extends BasePage {
 
     @FindBy(css=".btn.btn_secondary.btn_small.cart_button")
     private WebElement removeButton;
+
+    @FindBy(className = "shopping_cart_badge")
+    private WebElement cartNum;
 
 
     public CartPage(WebDriver driver) {
@@ -34,5 +38,16 @@ public class CartPage extends BasePage {
 
     public void clickRemove(){
         removeButton.click();
+    }
+
+    public boolean getNumCart(){
+        try {
+            if (cartNum.isDisplayed()) {
+                return true;
+            }
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return false;
     }
 }
